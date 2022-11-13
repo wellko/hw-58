@@ -10,6 +10,8 @@ function App() {
 
   const closeAlert = () => console.log('Close button pushed');
 
+  const continues = () => alert('you clicked continue button');
+
   return (
     <div className='container-fluid text-center'>
       <button
@@ -22,6 +24,10 @@ function App() {
           show={showModal}
           onClose={cancel}
           title="Some kinda modal title"
+          buttons={[
+              {type: 'primary', label: 'Continue', onClick: continues},
+              {type: 'danger', label: 'Close', onClick: cancel}
+          ]}
       >
         <p>This is modal content</p>
       </Modal>
