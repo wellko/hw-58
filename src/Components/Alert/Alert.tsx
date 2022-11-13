@@ -14,7 +14,7 @@ const Alert: React.FC<Props> = ({type, onDismiss, children}) => {
 			className={alertClass}
 		>
 			{children}
-			<button className='btn btn-close' type='button'></button>
+			<button className='btn btn-close' type='button' onClick={onDismiss}></button>
 		</div>
 	</>);
 
