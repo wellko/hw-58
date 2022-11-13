@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Modal from "./Components/Modal/Modal";
+import Alert from "./Components/Alert/Alert";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
 
   const cancel = () => setShowModal(false);
 
+  const closeAlert = () => console.log('Close button pushed');
 
   return (
     <div className='container-fluid text-center'>
@@ -23,6 +25,8 @@ function App() {
       >
         <p>This is modal content</p>
       </Modal>
+        <Alert type='danger' onDismiss={closeAlert}> Some Alert </Alert>
+        <Alert type="success">This is a success type alert</Alert>
     </div>
   );
 }
