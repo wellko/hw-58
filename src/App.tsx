@@ -9,17 +9,37 @@ function App() {
 
 	const cancel = () => setShowModal(false);
 
-	const closeAlert = () => console.log('Close button pushed');
+	const [showAlertWithButton, setShowAlertWithButton] = useState(true);
+
+	const closeAlertWithButton = () => setShowAlertWithButton(false);
+
+	const [showAlert, setShowAlert] = useState(true);
+
+	const closeAlert = () => setShowAlert(false);
 
 	const continues = () => alert('you clicked continue button');
 
 	return (
-		<div className='container-fluid text-center'>
+		<div className='container-fluid text-center mt-5'>
 			<button
-				className="btn btn-primary"
+				className="btn btn-primary m-5"
 				onClick={() => setShowModal(true)}
 			>
 				Call Modal
+			</button>
+
+			<button
+				className="btn btn-danger m-5"
+				onClick={() => setShowAlertWithButton(true)}
+			>
+				Call Warning
+			</button>
+
+			<button
+				className="btn btn-success m-5"
+				onClick={() => setShowAlert(true)}
+			>
+				Call Success
 			</button>
 
 			<Modal
@@ -34,8 +54,8 @@ function App() {
 				<p>This is modal content</p>
 			</Modal>
 
-			<Alert type='danger' clickDismissable onDismiss={closeAlert}> Some Alert </Alert>
-			<Alert type="success" onDismiss={closeAlert}>This is a success type alert</Alert>
+			<Alert type='danger' show={showAlertWithButton} clickDismissable onDismiss={closeAlertWithButton}> This is a warning type alert </Alert>
+			<Alert type="success" show={showAlert} onDismiss={closeAlert}>This is a success type alert</Alert>
 		</div>
 	);
 }
