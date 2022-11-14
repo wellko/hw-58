@@ -2,10 +2,11 @@ import React from 'react';
 
 interface Props extends React.PropsWithChildren {
 	type: string,
-	onDismiss?: React.MouseEventHandler
+	onDismiss: React.MouseEventHandler,
+	clickDismissable?:boolean,
 }
 
-const Alert: React.FC<Props> = ({type, onDismiss, children}) => {
+const Alert: React.FC<Props> = ({type, onDismiss, children,clickDismissable}) => {
 	let alertClass = 'justify-content-between d-flex alert alert-';
 	alertClass += type;
 
@@ -18,11 +19,12 @@ const Alert: React.FC<Props> = ({type, onDismiss, children}) => {
 		</div>
 	</>);
 
-	if (onDismiss === undefined) {
+	if (!clickDismissable) {
 		alertBlock = (
 			<>
 				<div
 					className={alertClass}
+					onClick={onDismiss}
 				>
 					{children}
 				</div>
