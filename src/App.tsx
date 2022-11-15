@@ -9,11 +9,11 @@ function App() {
 
 	const cancel = () => setShowModal(false);
 
-	const [showAlertWithButton, setShowAlertWithButton] = useState(true);
+	const [showAlertWithButton, setShowAlertWithButton] = useState(false);
 
 	const closeAlertWithButton = () => setShowAlertWithButton(false);
 
-	const [showAlert, setShowAlert] = useState(true);
+	const [showAlert, setShowAlert] = useState(false);
 
 	const closeAlert = () => setShowAlert(false);
 
